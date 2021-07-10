@@ -1,14 +1,19 @@
 from sklearn import datasets
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
+from sklearn.svm import SVC
 
 # define a Gaussain NB classifier
-clf = GaussianNB()
+# clf = GaussianNB()
+clf = AdaBoostClassifier()
+# clf =  SVC(kernel="linear", C=0.025)
 
 # define the class encodings and reverse encodings
 classes = {0: "Iris Setosa", 1: "Iris Versicolour", 2: "Iris Virginica"}
 r_classes = {y: x for x, y in classes.items()}
+
 
 # function to train and load the model during startup
 def load_model():
@@ -21,6 +26,7 @@ def load_model():
 
     # calculate the print the accuracy score
     acc = accuracy_score(y_test, clf.predict(X_test))
+    print(acc)
     print(f"Model trained with accuracy: {round(acc, 3)}")
 
 
