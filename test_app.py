@@ -30,10 +30,10 @@ def test_pred_virginica():
 def test_pred_versicolour():
     # defining a sample payload for the testcase
     payload = {
-        "sepal_length": 3,
-        "sepal_width": 1,
-        "petal_length": 1,
-        "petal_width": 2,
+        "sepal_length": 6,
+        "sepal_width": 3,
+        "petal_length": 4,
+        "petal_width": 1,
     }
     with TestClient(app) as client:
         response = client.post("/predict_flower", json=payload)
